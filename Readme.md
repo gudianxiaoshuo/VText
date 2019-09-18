@@ -76,6 +76,7 @@ public:
 ```
 <hr>
 3）创建文本
+
 ```cpp
 CMyTxt txtCtl;
  
