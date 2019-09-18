@@ -1,1 +1,1 @@
-![](https://github.com/gudianxiaoshuo/VText/tree/master/demo.png)
+![](https://github.com/gudianxiaoshuo/VText/blob/master/demo.png)
