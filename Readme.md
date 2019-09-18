@@ -15,23 +15,23 @@
 以控制台为例（不限于控制台）：
 
 1) 头文件
-...
+```cpp 
 #include "VHText.h"
 using namespace VText;
-...
+```
 <hr>
 2）写一个子类 继承CTxt
-...
+```cpp
 	class CTxt :public CBasicTxt
 	{
 	public:
 		void PrintTxtBody(Chunk* pBody);
 		virtual	void DispWord(word *pWord) = 0;
 	};
-...
+```
      实现，显示某个字的功能
 
-...
+```cpp
      class CMyTxt :public CTxt
 {
 public:
@@ -72,10 +72,10 @@ public:
  
  
 };
-...
+```
 <hr>
 3）创建文本
-...
+```cpp
 CMyTxt txtCtl;
  
 void HorText()
@@ -91,9 +91,9 @@ void HorText()
 	txtCtl.PrintTxtBody(pHorBody2);
  
 }
-...
+```
 
-...
+```cpp
 void VerText()
 {
 	CTxtBody* pVerBody1 = txtCtl.CreateVerTextBody(33, 9, 1, L"垂直文本测试1");
@@ -104,9 +104,9 @@ void VerText()
 	txtCtl.PrintTxtBody(pVerBody2);
 	txtCtl.PrintTxtBody(pVerBody3);
 }
-...
+```
 
-...
+```cpp
 void HorVerChange()
 {
 	CTxtBody* pVerBody = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
@@ -115,9 +115,9 @@ void HorVerChange()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
 	txtCtl.PrintTxtBody(pVerBody);
 }
-...
+```
 
- ...
+ ```cpp
 void ReSetText()
 {
 	CTxtBody* pVerBody = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
@@ -126,8 +126,8 @@ void ReSetText()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
 	txtCtl.PrintTxtBody(pVerBody);
 }
-...
-...
+```
+```cpp
 int _tmain(int argc, _TCHAR* argv[])
 {
 	HorText();
@@ -142,4 +142,4 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
  
 }
-...
+```
