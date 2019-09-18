@@ -21,6 +21,7 @@ using namespace VText;
 ```
 <hr>
 2）写一个子类 继承CTxt
+
 ```cpp
 	class CTxt :public CBasicTxt
 	{
