@@ -13,8 +13,6 @@ public:
 
 	void DispWord(word *pWord)
 	{
-		//setlocale(LC_ALL, "chs");
-		//wprintf(L"%s  Left:%d   Top:%d \n", pWord->Str, pWord->Left, pWord->Top);
 
 
 		Chunk* pChunk = pWord->Parent;
