@@ -49,44 +49,62 @@ public:
 
 
 };
+CMyTxt txtCtl;
 
-
-
-
-int _tmain(int argc, _TCHAR* argv[])
+void HorText()
 {
-	CMyTxt txtCtl;
+	
 
-	CTxtBody* pHorBody1 = txtCtl.CreateHorTextBody(36, 7, 2, L"QSSS11");
-	CTxtBody* pHorBody2 = txtCtl.CreateHorTextBody(36, 19, 2, L"水平文本测试2");
-
-	CTxtBody* pVerBody1 = txtCtl.CreateVerTextBody(36, 9, 1, L"垂直文本测试1");
-	CTxtBody* pVerBody2 = txtCtl.CreateVerTextBody(48, 9, 1, L"垂直文本测试2");
-
-	CTxtBody* pVerBody3 = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
-	//txtCtl.SetTxt(pVerBody3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡aa");
-	//txtCtl.HorVerChange(pVerBody3);
-	//pVerBody3->ToHor();
-	//pVerBody3->ToVer();
-
+	CTxtBody* pHorBody1 = txtCtl.CreateHorTextBody(36, 7, 2, L"水平文本测试1");
+	CTxtBody* pHorBody2 = txtCtl.CreateHorTextBody(36, 10, 2, L"水平文本测试2");
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);//设置蓝色
 
 	txtCtl.PrintTxtBody(pHorBody1);
 	txtCtl.PrintTxtBody(pHorBody2);
 
+}
+
+void VerText()
+{
+	CTxtBody* pVerBody1 = txtCtl.CreateVerTextBody(33, 9, 1, L"垂直文本测试1");
+	CTxtBody* pVerBody2 = txtCtl.CreateVerTextBody(52, 9, 1, L"垂直文本测试2");
+	CTxtBody* pVerBody3 = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN);//设置绿色
 	txtCtl.PrintTxtBody(pVerBody1);
 	txtCtl.PrintTxtBody(pVerBody2);
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
-	//txtCtl.SetTxt(pVerBody1, L"abc\n666\n111666\n0000急急急\n呵呵呵呵呵\n日日日");
 	txtCtl.PrintTxtBody(pVerBody3);
+}
 
-	//txtCtl.HorVerChange(pHorBody2);
-	//txtCtl.PrintTxtBody(pHorBody2);
+void HorVerChange()
+{
+	CTxtBody* pVerBody = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
+	
+	txtCtl.HorVerChange(pVerBody);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
+	txtCtl.PrintTxtBody(pVerBody);
+}
+
+void ReSetText()
+{
+	CTxtBody* pVerBody = txtCtl.CreateVerTextBody(48, 21, 3, L"床前明月光\n疑是地上霜\n举头望明月\n低头思故乡");
+
+	txtCtl.SetTxt(pVerBody, L"大江东去浪淘尽\n千古英雄");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
+	txtCtl.PrintTxtBody(pVerBody);
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	HorText();
+	VerText();
+
+	
+	//ReSetText();
 
 	getchar();
+	
+
 	return 0;
 
 }
